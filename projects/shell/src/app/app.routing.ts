@@ -12,10 +12,10 @@ export const APP_ROUTES: Routes = [
 
   // Your route here:
 
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () => import('mfe1/Module').then(m => m.DashboardModule)
-  // },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('dashboard/Module').then(m => m.DashboardModule)
+  },
 
   {
     path: '**',

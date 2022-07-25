@@ -2,10 +2,10 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-  name: 'mfe1',
+  name: 'dashboard',
 
   exposes: {
-    './Component': './projects/dashboard/src/app/app.component.ts',
+    './Module': './projects/dashboard/src/app/dashboard/dashboard.module.ts',
   },
 
   shared: {
