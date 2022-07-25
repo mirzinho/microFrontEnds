@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { loadRemoteModule } from '@angular-architects/module-federation';
 
 export const APP_ROUTES: Routes = [
   {
@@ -14,8 +15,19 @@ export const APP_ROUTES: Routes = [
 
   {
     path: 'dashboard',
-    loadChildren: () => import('dashboard/Module').then(m => m.DashboardModule)
+    loadChildren: () =>
+      loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        exposedModule: './Dashboard'
+      })
+        .then(m => m.DashboardModule)
   },
+
+  // {
+  //   path: 'dashboard',
+  //   loadChildren: () => import('dashboard/Module').then(m => m.DashboardModule)
+  // },
 
   {
     path: '**',
