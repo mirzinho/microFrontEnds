@@ -13,8 +13,8 @@ export const APP_ROUTES: Routes = [
   // Your route here:
 
   // {
-  //   path: 'flights',
-  //   loadChildren: () => import('mfe1/Module').then(m => m.FlightsModule)
+  //   path: 'dashboard',
+  //   loadChildren: () => import('mfe1/Module').then(m => m.DashboardModule)
   // },
 
   {
