@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run start:all",
+    "start:shell": "ng serve shell  -o --port 4200",
+    "start:dashboard": "ng serve dashboard --port 4201",
+    "start:all": "concurrently \"npm run start:shell\" \"npm run start:dashboard\" ",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
