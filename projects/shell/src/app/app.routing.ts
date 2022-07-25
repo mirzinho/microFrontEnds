@@ -17,8 +17,8 @@ export const APP_ROUTES: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       loadRemoteModule({
-        type: 'module',
-        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        type: 'manifest',
+        remoteName: 'dashboard',
         exposedModule: './Dashboard'
       })
         .then(m => m.DashboardModule)
