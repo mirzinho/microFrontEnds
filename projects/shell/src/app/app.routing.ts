@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import {
+  WebComponentWrapper,
+  WebComponentWrapperOptions,
+} from '@angular-architects/module-federation-tools';
 
 export const APP_ROUTES: Routes = [
   {
@@ -9,9 +13,6 @@ export const APP_ROUTES: Routes = [
     component: HomeComponent,
     pathMatch: 'full'
   },
-
-
-  // Your route here:
 
   {
     path: 'dashboard',
@@ -24,10 +25,16 @@ export const APP_ROUTES: Routes = [
         .then(m => m.DashboardModule)
   },
 
-  // {
-  //   path: 'dashboard',
-  //   loadChildren: () => import('dashboard/Module').then(m => m.DashboardModule)
-  // },
+  {
+    path: 'hello',
+    component: WebComponentWrapper,
+    data: {
+      remoteEntry: 'http://localhost:5000/remoteEntry.js',
+      remoteName: 'hello',
+      exposedModule: './web-components',
+      elementName: 'hello-app'
+    } as WebComponentWrapperOptions
+  },
 
   {
     path: '**',
