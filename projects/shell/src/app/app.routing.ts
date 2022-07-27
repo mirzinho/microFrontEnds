@@ -35,6 +35,16 @@ export const APP_ROUTES: Routes = [
       elementName: 'hello-app'
     } as WebComponentWrapperOptions
   },
+ {
+    path: 'angular12',
+    component: WebComponentWrapper,
+    data: {
+      remoteEntry: 'http://localhost:4202/remoteEntry.js',
+      remoteName: 'angular1',
+      exposedModule: './web-components',
+      elementName: 'angular1-element'
+    } as WebComponentWrapperOptions
+  },
 
   {
     path: '**',
